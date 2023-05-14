@@ -1,9 +1,15 @@
 package hello.core.member;
 
-public class MemberServiceImpl implements  MemberService {
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+@Component
+public class MemberServiceImpl implements MemberService {
 
     private final MemberRepository memberRepository;
 
+    @Autowired //자동으로 ac.getBean(MemberRepository.class) 코드가 들어가는것이라고 보면됨
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
